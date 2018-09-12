@@ -1,5 +1,5 @@
 # git-find
-Find the first matching git branch and check it out
+Find the first matching git branch and check it out, in just one step!
 
 # How to use
 `git find blah` finds the first branch (local or remote) with a name containing `blah` and checks it out. If no branch containing `blah` was found, it shows an error message.
