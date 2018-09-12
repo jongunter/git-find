@@ -1,0 +1,15 @@
+#!/bin/bash
+
+if [ -z "$1" ]; then
+        echo "You need an argument"
+        exit 1
+fi
+
+git fetch --quiet
+targetBranch=$(git branch --list --all "*$1*" | sed "s/*//g" | sed "s/ //g" | awk 'NR==1{print $1}' | sed "s|remotes/origin/||")
+if [ -z "$targetBranch" ]; then
+        echo "Branch containing '$1' not found."
+        exit 1
+else
+        git checkout $targetBranch
+fi
